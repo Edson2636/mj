@@ -1,311 +1,560 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Coming Soon | Meet Celebrities & Shop Exclusive Items</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <style>
-      :root {
-        --ink: #0a0e1a;
-        --surface: #121828;
-        --surface-2: #1a2233;
-        --border: #2a3247;
-        --text: #f3f1ea;
-        --text-muted: #9aa3b8;
-        --gold: #d9b878;
-        --gold-soft: rgba(217, 184, 120, 0.14);
-        --gold-line: rgba(217, 184, 120, 0.35);
-        --green: #25d366;
-        --green-dark: #1aa651;
-      }
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PitchWave Gadgets &amp; Games — PES 5 &amp; iPhones, Lagos</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700;800&family=Karla:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg:            #0F251C;
+    --bg-panel:      #163728;
+    --line:          #2C4C3C;
+    --turf:          #47A85A;
+    --turf-dim:      #326B3E;
+    --gold:          #F2B705;
+    --ink:           #F1EEE3;
+    --ink-dim:       #AFC4B7;
+  }
+  *{ box-sizing:border-box; }
+  html{ scroll-behavior:smooth; }
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:'Karla', sans-serif;
+    line-height:1.55;
+  }
+  h1,h2,h3,.scoreline{
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:700;
+    letter-spacing:0.01em;
+  }
+  a{ color:inherit; }
+  .wrap{
+    max-width:960px;
+    margin:0 auto;
+    padding:0 24px;
+  }
 
-      * {
-        box-sizing: border-box;
-        margin: 0;
-        padding: 0;
-      }
+  /* ---------- Top bar ---------- */
+  .topbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:22px 24px;
+    border-bottom:1px solid var(--line);
+  }
+  .brand{
+    display:flex;
+    align-items:baseline;
+    gap:8px;
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:800;
+    font-size:22px;
+    text-decoration:none;
+  }
+  .brand span{ color:var(--gold); }
+  .topbar nav a{
+    text-decoration:none;
+    color:var(--ink-dim);
+    font-size:15px;
+    margin-left:26px;
+  }
+  .topbar nav a:hover{ color:var(--ink); }
 
-      html {
-        -webkit-font-smoothing: antialiased;
-        scroll-behavior: smooth;
-      }
+  /* ---------- Hero ---------- */
+  .hero{
+    padding:72px 0 56px;
+    border-bottom:1px solid var(--line);
+  }
+  .hero .kicker{
+    color:var(--turf);
+    font-size:16px;
+    font-weight:600;
+    margin:0 0 10px;
+  }
+  .hero h1{
+    font-size:clamp(40px, 6vw, 64px);
+    line-height:1.02;
+    margin:0 0 20px;
+    max-width:14ch;
+  }
+  .hero p{
+    max-width:52ch;
+    color:var(--ink-dim);
+    font-size:17px;
+    margin:0 0 30px;
+  }
+  .hero-actions{ display:flex; gap:14px; flex-wrap:wrap; }
+  .btn{
+    display:inline-block;
+    padding:13px 24px;
+    border-radius:3px;
+    text-decoration:none;
+    font-weight:600;
+    font-size:15px;
+    border:1px solid transparent;
+  }
+  .btn-primary{ background:var(--turf); color:#08170F; }
+  .btn-primary:hover{ background:#57BE68; }
+  .btn-ghost{ border-color:var(--line); color:var(--ink); }
+  .btn-ghost:hover{ border-color:var(--turf); }
 
-      body {
-        background:
-          radial-gradient(
-            ellipse 80% 60% at 50% -10%,
-            rgba(37, 211, 102, 0.08),
-            transparent 60%
-          ),
-          var(--ink);
-        color: var(--text);
-        font-family:
-          "Inter",
-          -apple-system,
-          BlinkMacSystemFont,
-          sans-serif;
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        padding: 40px 20px;
-        overflow-x: hidden;
-      }
+  .hero-stats{
+    display:flex;
+    gap:40px;
+    margin-top:48px;
+    flex-wrap:wrap;
+  }
+  .hero-stats div .num{
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:700;
+    font-size:36px;
+    color:var(--gold);
+    display:block;
+  }
+  .hero-stats div .lbl{
+    color:var(--ink-dim);
+    font-size:14px;
+  }
 
-      .wrap {
-        width: 100%;
-        max-width: 540px;
-        text-align: center;
-      }
+  /* ---------- Discount banner ---------- */
+  .discount-strip{
+    background:var(--gold);
+    color:#241B00;
+  }
+  .discount-strip .wrap{
+    padding:12px 24px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    flex-wrap:wrap;
+    font-size:14px;
+    font-weight:600;
+    text-align:center;
+  }
+  .discount-strip strong{ font-family:'Barlow Condensed', sans-serif; font-size:16px; }
 
-      /* ---------- Signature mark ---------- */
-      .mark {
-        width: 76px;
-        height: 76px;
-        margin: 0 auto 24px;
-        position: relative;
-        display: grid;
-        place-items: center;
-      }
+  /* ---------- Hero layout with graphic ---------- */
+  .hero .wrap{
+    display:grid;
+    grid-template-columns:1.15fr 0.85fr;
+    gap:32px;
+    align-items:center;
+  }
+  .hero-art{ justify-self:end; width:100%; max-width:300px; }
+  .hero-art svg{ width:100%; height:auto; display:block; }
 
-      .mark svg {
-        position: absolute;
-        inset: 0;
-        width: 100%;
-        height: 100%;
-      }
+  /* ---------- Section icon + heading ---------- */
+  .catalog-head .heading-row{
+    display:flex;
+    align-items:center;
+    gap:14px;
+  }
+  .section-icon{ flex:0 0 auto; width:48px; height:48px; }
 
-      .mark .ring {
-        animation: spin 22s linear infinite;
-        transform-origin: 50% 50%;
-      }
+  /* ---------- Price with discount ---------- */
+  .price-wrap{
+    display:flex;
+    flex-direction:column;
+    align-items:flex-end;
+    gap:3px;
+    justify-self:end;
+  }
+  .price-old{
+    font-size:13px;
+    color:var(--ink-dim);
+    text-decoration:line-through;
+  }
+  .price-new{
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:700;
+    font-size:22px;
+    color:var(--gold);
+    white-space:nowrap;
+  }
+  .badge-off{
+    background:var(--gold);
+    color:#241B00;
+    font-size:10.5px;
+    font-weight:700;
+    padding:2px 6px;
+    border-radius:2px;
+    letter-spacing:0.02em;
+  }
+  .flagship .price-new{ font-size:32px; }
+  .flagship .price-old{ font-size:14px; }
 
-      .mark .core {
-        font-size: 1.5rem;
-      }
+  /* ---------- Section shell ---------- */
+  section.catalog{ padding:56px 0; border-bottom:1px solid var(--line); }
+  .catalog-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    flex-wrap:wrap;
+    gap:16px;
+    margin-bottom:30px;
+  }
+  .catalog-head h2{
+    font-size:34px;
+    margin:0;
+  }
+  .catalog-head p{
+    color:var(--ink-dim);
+    margin:6px 0 0;
+    max-width:46ch;
+    font-size:15px;
+  }
 
-      @keyframes spin {
-        to {
-          transform: rotate(360deg);
-        }
-      }
+  /* ---------- Scoreboard price list ---------- */
+  .board{
+    border-top:2px solid var(--turf);
+  }
+  .board-row{
+    display:grid;
+    grid-template-columns:1fr auto auto;
+    gap:18px;
+    align-items:baseline;
+    padding:18px 0;
+    border-bottom:1px solid var(--line);
+  }
+  .board-row .name{
+    font-size:18px;
+    font-weight:600;
+  }
+  .board-row .detail{
+    display:block;
+    font-family:'Karla', sans-serif;
+    font-weight:400;
+    color:var(--ink-dim);
+    font-size:14px;
+    margin-top:3px;
+  }
+  .board-row .stock{
+    font-size:13px;
+    color:var(--turf);
+    white-space:nowrap;
+    justify-self:end;
+  }
+  .board-row .stock.low{ color:var(--gold); }
+  .board-row .price{
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:700;
+    font-size:22px;
+    color:var(--gold);
+    white-space:nowrap;
+    justify-self:end;
+  }
 
-      .eyebrow {
-        font-size: 0.72rem;
-        font-weight: 600;
-        letter-spacing: 0.18em;
-        text-transform: uppercase;
-        color: var(--green);
-        margin-bottom: 16px;
-      }
+  /* ---------- Tabs (used in phones section) ---------- */
+  .tabs{
+    display:flex;
+    gap:6px;
+    margin-bottom:8px;
+  }
+  .tab{
+    background:transparent;
+    border:1px solid var(--line);
+    color:var(--ink-dim);
+    padding:9px 18px;
+    border-radius:3px;
+    font-family:'Karla', sans-serif;
+    font-size:14px;
+    font-weight:600;
+    cursor:pointer;
+  }
+  .tab.active{
+    border-color:var(--turf);
+    color:var(--ink);
+    background:var(--bg-panel);
+  }
+  .board-panel{ display:none; }
+  .board-panel.active{ display:block; }
+  .note{
+    font-size:13px;
+    color:var(--ink-dim);
+    margin-top:16px;
+  }
+  .note b{ color:var(--ink); }
 
-      h1 {
-        font-family: "Fraunces", serif;
-        font-weight: 600;
-        font-size: clamp(2.2rem, 6vw, 3.2rem);
-        line-height: 1.15;
-        letter-spacing: -0.01em;
-        margin-bottom: 18px;
-      }
+  /* ---------- Highlight strip for the flagship phone ---------- */
+  .flagship{
+    margin-top:26px;
+    display:grid;
+    grid-template-columns:1fr auto;
+    gap:20px;
+    align-items:center;
+    background:var(--bg-panel);
+    border:1px solid var(--line);
+    border-left:3px solid var(--gold);
+    padding:22px 24px;
+    border-radius:3px;
+  }
+  .flagship .tag{
+    font-size:13px;
+    color:var(--gold);
+    font-weight:700;
+    margin-bottom:6px;
+  }
+  .flagship h3{ margin:0 0 4px; font-size:26px; }
+  .flagship p{ margin:0; color:var(--ink-dim); font-size:14px; }
+  .flagship .price{
+    font-family:'Barlow Condensed', sans-serif;
+    font-weight:700;
+    font-size:32px;
+    color:var(--gold);
+    text-align:right;
+    white-space:nowrap;
+  }
+  .flagship .price small{
+    display:block;
+    font-family:'Karla', sans-serif;
+    font-weight:400;
+    font-size:13px;
+    color:var(--ink-dim);
+  }
 
-      h1 em {
-        font-style: italic;
-        font-weight: 500;
-        background: linear-gradient(
-          100deg,
-          var(--text) 30%,
-          var(--green) 45%,
-          #86efac 50%,
-          var(--green) 55%,
-          var(--text) 70%
-        );
-        background-size: 250% 100%;
-        background-position: 0% 0%;
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
-        animation: shimmer 5s ease-in-out 0.4s infinite;
-      }
+  /* ---------- Footer ---------- */
+  footer{ padding:44px 0 60px; }
+  footer .cols{
+    display:flex;
+    justify-content:space-between;
+    gap:30px;
+    flex-wrap:wrap;
+  }
+  footer h4{
+    font-family:'Karla', sans-serif;
+    font-size:14px;
+    color:var(--ink-dim);
+    margin:0 0 10px;
+    font-weight:700;
+  }
+  footer p, footer a{ font-size:14px; color:var(--ink-dim); text-decoration:none; }
+  footer a:hover{ color:var(--turf); }
+  .fine{
+    margin-top:36px;
+    padding-top:20px;
+    border-top:1px solid var(--line);
+    font-size:12.5px;
+    color:#6D8579;
+  }
 
-      @keyframes shimmer {
-        0% {
-          background-position: 120% 0%;
-        }
-        100% {
-          background-position: -20% 0%;
-        }
-      }
+  @media (max-width:720px){
+    .hero .wrap{ grid-template-columns:1fr; }
+    .hero-art{ justify-self:center; max-width:200px; order:-1; }
+  }
+  @media (max-width:600px){
+    .board-row{ grid-template-columns:1fr auto; row-gap:4px; }
+    .board-row .stock{ display:none; }
+    .price-wrap{ align-items:flex-end; }
+    .flagship{ grid-template-columns:1fr; }
+    .flagship .price-wrap{ align-items:flex-start; }
+  }
+</style>
+</head>
+<body>
 
-      .tagline {
-        color: var(--text-muted);
-        font-size: 1.02rem;
-        line-height: 1.65;
-        max-width: 480px;
-        margin: 0 auto 36px;
-      }
+<div class="topbar wrap">
+  <a class="brand" href="#top">PitchWave <span>Gadgets &amp; Games</span></a>
+  <nav>
+    <a href="#pes5">PES 5</a>
+    <a href="#iphones">iPhones</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</div>
 
-      .tagline strong {
-        color: var(--text);
-        font-weight: 600;
-      }
+<div class="discount-strip">
+  <div class="wrap">
+    <span><strong>10% OFF</strong> everything on this page right now.</span>
+    <span>Message us on live chat for the exact discounted price and delivery options.</span>
+  </div>
+</div>
 
-      /* Card Box */
-      .card {
-        background: var(--surface);
-        border: 1px solid var(--border);
-        border-radius: 20px;
-        padding: 32px 24px;
-        box-shadow: 0 15px 35px rgba(0, 0, 0, 0.25);
-        margin-bottom: 24px;
-      }
-
-      .btn-wa {
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        gap: 10px;
-        width: 100%;
-        padding: 16px;
-        background: var(--green);
-        color: #06210f;
-        border: none;
-        border-radius: 12px;
-        font-size: 1rem;
-        font-weight: 700;
-        font-family: inherit;
-        cursor: pointer;
-        text-decoration: none;
-        box-shadow: 0 4px 20px rgba(37, 211, 102, 0.3);
-        transition:
-          transform 0.15s,
-          filter 0.15s,
-          box-shadow 0.15s;
-      }
-
-      .btn-wa:hover {
-        filter: brightness(1.08);
-        transform: translateY(-2px);
-      }
-
-      .btn-wa svg {
-        width: 22px;
-        height: 22px;
-        fill: currentColor;
-      }
-
-      .redirect-note {
-        font-size: 0.8rem;
-        color: var(--text-muted);
-        margin-top: 14px;
-      }
-
-      .redirect-note strong {
-        color: var(--green);
-      }
-
-      .footnote {
-        font-size: 0.78rem;
-        color: var(--text-muted);
-        line-height: 1.6;
-      }
-
-      @media (prefers-reduced-motion: reduce) {
-        .mark .ring,
-        h1 em {
-          animation: none;
-        }
-      }
-    </style>
-  </head>
-
-  <body>
-    <div class="wrap">
-      <div class="mark">
-        <svg class="ring" viewBox="0 0 76 76" fill="none">
-          <circle
-            cx="38"
-            cy="38"
-            r="35"
-            stroke="rgba(37, 211, 102, 0.35)"
-            stroke-width="1"
-            stroke-dasharray="3 7"
-          />
-        </svg>
-        <svg viewBox="0 0 76 76" fill="none">
-          <circle
-            cx="38"
-            cy="38"
-            r="27"
-            stroke="var(--border)"
-            stroke-width="1"
-          />
-        </svg>
-        <span class="core">💬</span>
+<header class="hero" id="top">
+  <div class="wrap">
+    <div>
+      <p class="kicker">Lagos · Consoles &amp; Handsets</p>
+      <h1>Match-day games. Line-up of iPhones.</h1>
+      <p>We install PES 5 on the spot and stock brand-new and UK-used iPhones, from the 13 up to the 17 Pro Max — all under one roof, prices posted plainly like a scoreboard.</p>
+      <div class="hero-actions">
+        <a class="btn btn-primary" href="#pes5">See PES 5 prices</a>
+        <a class="btn btn-ghost" href="#iphones">See iPhone prices</a>
       </div>
-
-      <p class="eyebrow">Exclusive Access</p>
-      <h1>Chat With Us to Meet <em>Celebrities</em> & Shop Items</h1>
-
-      <p class="tagline">
-        Skip the forms. Connect directly with our team on WhatsApp to start chatting, <strong>meet surprise celebrities</strong>, and shop their exclusive items right away!
-      </p>
-
-      <div class="card">
-        <a
-          href="#"
-          id="wa-link"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="btn-wa"
-        >
-          <svg viewBox="0 0 24 24">
-            <path
-              d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946C.06 5.348 5.397 0 11.966 0c3.178.001 6.169 1.24 8.413 3.488 2.245 2.248 3.481 5.239 3.482 8.415-.004 6.617-5.34 11.965-11.909 11.965-1.996-.001-3.963-.503-5.714-1.458L0 24zm6.59-4.846c1.6.95 3.188 1.449 4.825 1.451 5.436 0 9.86-4.37 9.864-9.742.002-2.602-1.01-5.05-2.852-6.894C16.643 2.125 14.197.923 11.962.923c-5.44 0-9.866 4.373-9.87 9.746-.001 1.696.447 3.354 1.298 4.814L2.4 21.01l4.247-1.856zM17.48 15.63c-.31-.155-1.836-.906-2.119-1.01-.283-.103-.49-.155-.696.155-.205.31-.796.101-.975 1.213-.18.207-.36.24-.67.084-.31-.156-1.31-.483-2.496-1.542-.924-.824-1.547-1.842-1.728-2.152-.18-.31-.02-.477.136-.632.14-.139.31-.361.464-.543.155-.18.206-.31.31-.516.103-.207.052-.387-.026-.543-.077-.155-.696-1.677-.953-2.3-.25-.6-.505-.519-.695-.529-.18-.008-.387-.01-.593-.01-.207 0-.542.078-.826.388-.283.31-1.082 1.059-1.082 2.585 0 1.525 1.11 3 1.26 3.207.155.207 2.184 3.334 5.292 4.673.74.32 1.317.51 1.768.653.744.237 1.422.203 1.958.123.597-.089 1.836-.75 2.094-1.446.257-.696.257-1.293.18-1.419-.077-.127-.283-.207-.592-.361z"
-            />
-          </svg>
-          Chat on WhatsApp Now
-        </a>
-        <p class="redirect-note" id="countdown-text">
-          Auto-redirecting to WhatsApp in <strong id="countdown">3</strong> seconds...
-        </p>
+      <div class="hero-stats">
+        <div><span class="num">3</span><span class="lbl">PES 5 install options</span></div>
+        <div><span class="num">7</span><span class="lbl">iPhone models in stock</span></div>
+        <div><span class="num">10m</span><span class="lbl">install turnaround</span></div>
       </div>
+    </div>
+    <div class="hero-art">
+      <svg viewBox="0 0 320 320" xmlns="http://www.w3.org/2000/svg">
+        <circle cx="160" cy="150" r="150" fill="#163728"/>
+        <circle cx="160" cy="150" r="150" fill="none" stroke="#2C4C3C" stroke-width="1"/>
+        <circle cx="120" cy="120" r="66" fill="none" stroke="#47A85A" stroke-width="3"/>
+        <path d="M120 54 L142 90 L182 92 L156 122 L166 158 L120 138 L74 158 L84 122 L58 92 L98 90 Z"
+              fill="none" stroke="#47A85A" stroke-width="2.5" stroke-linejoin="round"/>
+        <g transform="translate(168,120)">
+          <rect x="0" y="0" width="108" height="176" rx="20" fill="#0F251C" stroke="#F2B705" stroke-width="3"/>
+          <rect x="14" y="18" width="80" height="126" rx="4" fill="#163728"/>
+          <rect x="40" y="20" width="28" height="7" rx="3.5" fill="#F2B705"/>
+          <circle cx="54" cy="158" r="7" fill="none" stroke="#F2B705" stroke-width="2.5"/>
+        </g>
+      </svg>
+    </div>
+  </div>
+</header>
 
-      <p class="footnote">
-        ✨ Click above to chat me up to meet with celebrities and shop their items.
-      </p>
+<section class="catalog" id="pes5">
+  <div class="wrap">
+    <div class="catalog-head">
+      <div class="heading-row">
+        <svg class="section-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+          <rect x="6" y="20" width="52" height="30" rx="15" fill="#163728" stroke="#47A85A" stroke-width="2.5"/>
+          <path d="M17 31v8M13 35h8" stroke="#F2B705" stroke-width="2.5" stroke-linecap="round"/>
+          <circle cx="41" cy="30" r="3.4" fill="#F2B705"/>
+          <circle cx="48" cy="37" r="3.4" fill="#F2B705"/>
+        </svg>
+        <div>
+          <h2>PES 5</h2>
+          <p>The classic still gets requested every week. Bring a system or a flash drive, or take it home on disc.</p>
+        </div>
+      </div>
     </div>
 
-    <script>
-      const WHATSAPP_NUMBER = "447482795285";
-      const chatMsg = "Hi! I want to chat with you to meet with celebrities and shop their items.";
-      const targetUrl = "https://wa.me/" + WHATSAPP_NUMBER + "?text=" + encodeURIComponent(chatMsg);
+    <div class="board">
+      <div class="board-row">
+        <div class="name">PC install (USB / flash drive delivery)<span class="detail">Full game copied to your drive, ready to install at home</span></div>
+        <div class="stock">Ready in 10 min</div>
+        <div class="price-wrap"><span class="badge-off">-10%</span><span class="price-old">$2</span><span class="price-new">$1.80</span></div>
+      </div>
+      <div class="board-row">
+        <div class="name">PS2 game disc<span class="detail">Pressed disc, tested before you leave the shop</span></div>
+        <div class="stock">In stock</div>
+        <div class="price-wrap"><span class="badge-off">-10%</span><span class="price-old">$3</span><span class="price-new">$2.70</span></div>
+      </div>
+      <div class="board-row">
+        <div class="name">Full option pack<span class="detail">Install + updated kits/patch + save-data setup, done on your laptop</span></div>
+        <div class="stock low">Book ahead</div>
+        <div class="price-wrap"><span class="badge-off">-10%</span><span class="price-old">$2.50</span><span class="price-new">$2.25</span></div>
+      </div>
+    </div>
+    <p class="note">Prices cover install labour and media, not the laptop or console itself. <b>Message us on live chat</b> for patches for a specific kit or scoreboard pack, and for delivery options.</p>
+  </div>
+</section>
 
-      // Set the button link immediately
-      document.getElementById("wa-link").href = targetUrl;
+<section class="catalog" id="iphones">
+  <div class="wrap">
+    <div class="catalog-head">
+      <div class="heading-row">
+        <svg class="section-icon" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+          <rect x="20" y="6" width="24" height="52" rx="6" fill="#163728" stroke="#47A85A" stroke-width="2.5"/>
+          <rect x="26" y="13" width="9" height="9" rx="2" fill="none" stroke="#F2B705" stroke-width="2"/>
+          <circle cx="32" cy="50" r="2.6" fill="#F2B705"/>
+        </svg>
+        <div>
+          <h2>iPhones</h2>
+          <p>Brand-new sealed units or UK-used, checked and unlocked before sale. All prices in US dollars.</p>
+        </div>
+      </div>
+    </div>
 
-      // 3-second auto-redirect timer
-      let timeLeft = 3;
-      const countdownEl = document.getElementById("countdown");
-      const countdownText = document.getElementById("countdown-text");
+    <div class="flagship">
+      <div>
+        <div class="tag">Current flagship</div>
+        <h3>iPhone 17 Pro Max</h3>
+        <p>256GB · Brand new, sealed, full warranty card</p>
+      </div>
+      <div class="price-wrap">
+        <span class="badge-off">-10%</span>
+        <span class="price-old">$1,900</span>
+        <span class="price-new">$1,710</span>
+        <small style="color:var(--ink-dim); font-size:13px;">UK-used from $1,170 (was $1,300)</small>
+      </div>
+    </div>
 
-      const timer = setInterval(() => {
-        timeLeft--;
-        if (timeLeft > 0) {
-          countdownEl.textContent = timeLeft;
-        } else {
-          clearInterval(timer);
-          countdownText.innerHTML = "<strong>Redirecting now...</strong>";
-          window.location.href = targetUrl;
-        }
-      }, 1000);
-    </script>
-    <script src="visitor-notify.js"></script>
-  </body>
+    <div class="tabs" style="margin-top:34px;">
+      <button class="tab active" data-panel="new">Brand New</button>
+      <button class="tab" data-panel="used">UK-Used</button>
+    </div>
+
+    <div class="board-panel active" id="new">
+      <div class="board">
+        <div class="board-row"><div class="name">iPhone 13<span class="detail">128GB</span></div><div class="stock">In stock</div><div class="price-wrap"><span class="badge-off">-10%</span><span class="price-old">$430</span><span class="price-new">$385</span></div></div>
+        <div class="board-row"><div class="name">iPhone 14<span class="detail">128GB</span></div><div class="stock">In stock</div><div class="price-wrap"><span class="badge-off">-10%</span><span class="price-old">$520</span><span class="price-new">$470</span></div></div>
+        <div class="board-row"><div class="name">iPhone 15<span class="detail">128GB</span></div><div class="stock">In stock</div><div class="price-wrap"><span class="badge-off">-10%</span><span class="price-old">$650</span><span class="price-new">$585</span></div></div>
+        <div class="board-row"><div class="name">iPhone 16<span class="detail">128GB</span></div><div class="stock">In stock</div><div class="price-wrap"><span class="badge-off">-10%</span><span class="price-old">$830</span><span class="price-new">$745</span></div></div>
+        <div class="board-row"><div class="name">iPhone 17<span class="detail">256GB</span></div><div class="stock">In stock</div><div class="price-wrap"><span class="badge-off">-10%</span><span class="price-old">$1,150</span><span class="price-new">$1,035</span></div></div>
+        <div class="board-row"><div class="name">iPhone 17 Pro<span class="detail">256GB</span></div><div class="stock low">2 left</div><div class="price-wrap"><span class="badge-off">-10%</span><span class="price-old">$1,650</span><span class="price-new">$1,485</span></div></div>
+        <div class="board-row"><div class="name">iPhone 17 Pro Max<span class="detail">256GB</span></div><div class="stock low">2 left</div><div class="price-wrap"><span class="badge-off">-10%</span><span class="price-old">$1,900</span><span class="price-new">$1,710</span></div></div>
+      </div>
+    </div>
+
+    <div class="board-panel" id="used">
+      <div class="board">
+        <div class="board-row"><div class="name">iPhone 13<span class="detail">128GB, UK-used, battery health 85%+</span></div><div class="stock">In stock</div><div class="price-wrap"><span class="badge-off">-10%</span><span class="price-old">$250</span><span class="price-new">$225</span></div></div>
+        <div class="board-row"><div class="name">iPhone 14<span class="detail">128GB, UK-used, battery health 85%+</span></div><div class="stock">In stock</div><div class="price-wrap"><span class="badge-off">-10%</span><span class="price-old">$320</span><span class="price-new">$290</span></div></div>
+        <div class="board-row"><div class="name">iPhone 15<span class="detail">128GB, UK-used, battery health 88%+</span></div><div class="stock">In stock</div><div class="price-wrap"><span class="badge-off">-10%</span><span class="price-old">$410</span><span class="price-new">$370</span></div></div>
+        <div class="board-row"><div class="name">iPhone 16<span class="detail">128GB, UK-used, battery health 90%+</span></div><div class="stock">In stock</div><div class="price-wrap"><span class="badge-off">-10%</span><span class="price-old">$560</span><span class="price-new">$505</span></div></div>
+        <div class="board-row"><div class="name">iPhone 17 Pro Max<span class="detail">256GB, UK-used, battery health 92%+</span></div><div class="stock low">1 left</div><div class="price-wrap"><span class="badge-off">-10%</span><span class="price-old">$1,300</span><span class="price-new">$1,170</span></div></div>
+      </div>
+    </div>
+
+    <p class="note">Prices can shift with stock and demand — <b>message us on live chat</b> to confirm today's discounted price, check delivery to your area, and lock in your unit. Every phone is tested and unlocked in front of you.</p>
+  </div>
+</section>
+
+<footer id="contact">
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <h4>PitchWave Gadgets &amp; Games</h4>
+        <p>Lagos, Nigeria</p>
+      </div>
+      <div>
+        <h4>Talk to us</h4>
+        <p>Use the chat bubble in the corner for live prices and availability.</p>
+      </div>
+      <div>
+        <h4>Hours</h4>
+        <p>Mon – Sat, 9am – 7pm</p>
+      </div>
+    </div>
+    <div class="fine wrap" style="padding:0;">
+      Prices shown are current estimates in US dollars and change with supply and demand — confirm the day's price in chat before paying. This page is a template: edit the numbers directly in the HTML to keep it accurate.
+    </div>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('.tab').forEach(function(tab){
+    tab.addEventListener('click', function(){
+      document.querySelectorAll('.tab').forEach(function(t){ t.classList.remove('active'); });
+      document.querySelectorAll('.board-panel').forEach(function(p){ p.classList.remove('active'); });
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.panel).classList.add('active');
+    });
+  });
+</script>
+
+<!--Start of Tawk.to Script-->
+<script type="text/javascript">
+var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+(function(){
+var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+s1.async=true;
+s1.src='https://embed.tawk.to/6a10889b8185521c3224bccb/1jp89b8am';
+s1.charset='UTF-8';
+s1.setAttribute('crossorigin','*');
+s0.parentNode.insertBefore(s1,s0);
+})();
+</script>
+<!--End of Tawk.to Script-->
+
+<script data-goatcounter="https://bgit.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script>
+
+</body>
 </html>
